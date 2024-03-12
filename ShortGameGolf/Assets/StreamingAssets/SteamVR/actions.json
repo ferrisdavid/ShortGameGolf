@@ -81,6 +81,20 @@
       "name": "/actions/mixedreality/in/ExternalCamera",
       "type": "pose",
       "requirement": "optional"
+    },
+    {
+      "name": "/actions/Golf/in/Grab",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/Golf/in/SkeletonLeftHand",
+      "type": "skeleton",
+      "skeleton": "/skeleton/hand/left"
+    },
+    {
+      "name": "/actions/Golf/in/SkeletonRightHand",
+      "type": "skeleton",
+      "skeleton": "/skeleton/hand/right"
     }
   ],
   "action_sets": [
@@ -98,6 +112,10 @@
     },
     {
       "name": "/actions/mixedreality",
+      "usage": "single"
+    },
+    {
+      "name": "/actions/Golf",
       "usage": "single"
     }
   ],
