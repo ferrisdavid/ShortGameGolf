@@ -45,6 +45,10 @@ public class ClubGrab : MonoBehaviour, Grabbable
         SetChildLayers(gameObject, 9);
     }
 
+    public GameObject GetAttachedHand() {
+        return attachedHand;
+    }
+
     private void SetChildLayers(GameObject obj, int layer) {
         foreach (Transform child in obj.transform)
         {
