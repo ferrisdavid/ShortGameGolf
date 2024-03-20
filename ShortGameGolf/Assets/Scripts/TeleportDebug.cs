@@ -6,6 +6,7 @@ using UnityEngine;
 public class TeleportDebug : MonoBehaviour
 {
     private PlayerController player;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +17,10 @@ public class TeleportDebug : MonoBehaviour
     void Update()
     {
         if (player.isTeleportEnabled) {
-            gameObject.GetComponent<Material>().color = Color.green;
+            gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
         } 
         else {
-            gameObject.GetComponent<Material>().color = Color.red;
+            gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
         }
     }
 }

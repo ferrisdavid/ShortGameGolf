@@ -10,18 +10,23 @@ public class TeleportController : MonoBehaviour
     // a reference to the hand
     public SteamVR_Input_Sources handType;
 
+    // Teleportable Objects
     [SerializeField]
     private GameObject cam;
     [SerializeField]
     private GameObject rig;
 
-    private PlayerController player;
+    // State Managers and Helpers.
+    private PlayerController PlayerManager;
+    [SerializeField]
+    private Vector3 teleportOffset;
+    [SerializeField]
+    private Transform ball;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GetComponent<PlayerController>();
-        
+        PlayerManager = GetComponent<PlayerController>();
         Teleport.AddOnStateDownListener(onTeleportRequest, handType);
     }
 
@@ -33,19 +38,20 @@ public class TeleportController : MonoBehaviour
 
     public void onTeleportRequest(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
-        if (player.isTeleportEnabled)
+        if (PlayerManager.isTeleportEnabled)
         {
             // Fade Screen to black on successful Teleport Request before moving
             SteamVR_Fade.View(Color.black, 1.0f);
             Vector3 difference = rig.transform.position - cam.transform.position;
+            Vector3 teleportPoint = ball.position - teleportOffset;
             // Start Fade Co routine which handles player movement and fade in
-            StartCoroutine(TeleportFade(player.teleportPoint, difference));
+            StartCoroutine(TeleportFade(teleportPoint, difference));
         }
     }
 
     private void handleTeleport(Vector3 teleportPoint, Vector3 camPlayerDiff)
     {
-        player.transform.position = new Vector3(camPlayerDiff.x + teleportPoint.x, player.transform.position.y, camPlayerDiff.z + teleportPoint.z);
+        rig.transform.position = new Vector3(camPlayerDiff.x + teleportPoint.x, rig.transform.position.y, camPlayerDiff.z + teleportPoint.z);
     }
 
     IEnumerator TeleportFade(Vector3 teleportPoint, Vector3 camPlayerDiff)
