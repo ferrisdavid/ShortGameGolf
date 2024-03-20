@@ -40,5 +40,13 @@ namespace Valve.VR
                 return SteamVR_Actions.golf_SkeletonRightHand;
             }
         }
+        
+        public virtual SteamVR_Action_Boolean Teleport
+        {
+            get
+            {
+                return SteamVR_Actions.golf_Teleport;
+            }
+        }
     }
 }
