@@ -95,6 +95,10 @@
       "name": "/actions/Golf/in/SkeletonRightHand",
       "type": "skeleton",
       "skeleton": "/skeleton/hand/right"
+    },
+    {
+      "name": "/actions/Golf/in/Teleport",
+      "type": "boolean"
     }
   ],
   "action_sets": [
