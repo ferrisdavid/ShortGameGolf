@@ -3,18 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - projectile
+  - left
+  - right
+  - ball
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ball
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Club
+  - Ground
+  - Hands
+  - Interactable
   - 
   - 
   - 
