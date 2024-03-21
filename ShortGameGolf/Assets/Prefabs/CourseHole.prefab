@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8627075050706400448}
   - component: {fileID: 2881384080467902482}
   - component: {fileID: 3097109582890933802}
-  m_Layer: 0
-  m_Name: Cube (7)
+  m_Layer: 10
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,8 +109,8 @@ GameObject:
   - component: {fileID: 1733536060941755411}
   - component: {fileID: 9184133070271710145}
   - component: {fileID: 5267143187486322718}
-  m_Layer: 0
-  m_Name: Cube (3)
+  m_Layer: 10
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,8 +206,8 @@ GameObject:
   - component: {fileID: 5886189178452839559}
   - component: {fileID: 7239368548035120934}
   - component: {fileID: 129463134370389122}
-  m_Layer: 0
-  m_Name: Cube (2)
+  m_Layer: 10
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -303,8 +303,8 @@ GameObject:
   - component: {fileID: 5143208605981540755}
   - component: {fileID: 2048371927744891683}
   - component: {fileID: 2630076286164609783}
-  m_Layer: 0
-  m_Name: Cube
+  m_Layer: 10
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -400,8 +400,8 @@ GameObject:
   - component: {fileID: 3632805091931326651}
   - component: {fileID: 1576607724871154637}
   - component: {fileID: 4546829521397144532}
-  m_Layer: 0
-  m_Name: Cube (4)
+  m_Layer: 10
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -595,7 +595,7 @@ GameObject:
   - component: {fileID: 6646534843054372321}
   - component: {fileID: 6646534843054372320}
   - component: {fileID: 6646534843054372335}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -699,7 +699,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6646534844826052110}
   m_Layer: 0
-  m_Name: Hole
+  m_Name: CourseHole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -736,8 +736,8 @@ GameObject:
   - component: {fileID: 7637939221217284434}
   - component: {fileID: 6050857714689774752}
   - component: {fileID: 5522481115445032727}
-  m_Layer: 0
-  m_Name: Cube (6)
+  m_Layer: 10
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -833,8 +833,8 @@ GameObject:
   - component: {fileID: 8040317816807339461}
   - component: {fileID: 3383737755640377735}
   - component: {fileID: 5929824409283646960}
-  m_Layer: 0
-  m_Name: Cube (1)
+  m_Layer: 10
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1028,8 +1028,8 @@ GameObject:
   - component: {fileID: 4325597965962449505}
   - component: {fileID: 7004131227142537889}
   - component: {fileID: 6514827817333066580}
-  m_Layer: 0
-  m_Name: Cube (5)
+  m_Layer: 10
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1125,6 +1125,7 @@ GameObject:
   - component: {fileID: 6101255863343571349}
   - component: {fileID: 4948573726563777023}
   - component: {fileID: 6389935521989693001}
+  - component: {fileID: 895758473941865400}
   m_Layer: 0
   m_Name: InsideCollider
   m_TagString: Untagged
@@ -1211,3 +1212,16 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &895758473941865400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9222177634800232191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d8e6fcf6488d9449561a69217acb44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: {fileID: 0}
