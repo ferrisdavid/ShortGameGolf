@@ -8,6 +8,7 @@ public class GameState : MonoBehaviour
     [SerializeField]
     private int strokeCount = 0;
 
+    private int freeStrokes = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -23,10 +24,19 @@ public class GameState : MonoBehaviour
 
     // Game State Access and Updater Methods.
     public void IncrementStrokes() {
+        if (freeStrokes > 0) {
+            freeStrokes--;
+            return;
+        }
+
         strokeCount++;
     }
 
     public void DecrementStrokes() {
         strokeCount--;
+    }
+
+    public void AddFreeStroke() {
+        freeStrokes++;
     }
 }
