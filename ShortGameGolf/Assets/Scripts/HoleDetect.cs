@@ -19,6 +19,8 @@ public class HoleDetect : MonoBehaviour
         if (other.gameObject.CompareTag("ball")) {
             other.gameObject.layer = 6;
         }
+        
+        GetComponentInChildren<ParticleSystem>().Play();
     }
 
     private void OnTriggerExit(Collider other) {
