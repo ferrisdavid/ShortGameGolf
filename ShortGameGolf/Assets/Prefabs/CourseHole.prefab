@@ -341,7 +341,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -460,7 +460,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 35
+      scalar: 12
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -899,7 +899,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1039,7 +1039,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 1
     radius:
-      value: 5
+      value: 2
       mode: 0
       spread: 0
       speed:
@@ -5473,7 +5473,7 @@ GameObject:
   - component: {fileID: 6646534843054372334}
   - component: {fileID: 6646534843054372321}
   - component: {fileID: 6646534843054372320}
-  - component: {fileID: 6646534843054372335}
+  - component: {fileID: 5155500433323612552}
   m_Layer: 10
   m_Name: Holder
   m_TagString: Untagged
@@ -5554,8 +5554,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6646534843054372335
-CapsuleCollider:
+--- !u!65 &5155500433323612552
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5564,10 +5564,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 16.202904, z: 1.0000002}
+  m_Center: {x: 0.000000049670536, y: -10.141994, z: -0.00000009934107}
 --- !u!1 &6646534844826052109
 GameObject:
   m_ObjectHideFlags: 0
@@ -5891,7 +5890,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 8381776042443688124}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -6021,7 +6020,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9222177634800232191}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0953, z: 0}
+  m_LocalPosition: {x: 0.0024, y: 0.1049, z: -0.01}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6088,10 +6087,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.4118712
+  m_Height: 1.7519164
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.05958187, y: -0.12404183, z: -0.012808317}
 --- !u!114 &895758473941865400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6105,3 +6104,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: {fileID: 0}
+  confettiSystem: {fileID: 8445669467417126819}
