@@ -9,6 +9,10 @@ public class HoleDetect : MonoBehaviour
     [SerializeField]
     private GameState gameState;
 
+    // Reference to Hole Particle System
+    [SerializeField]
+    private ParticleSystem confettiSystem;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,17 +20,13 @@ public class HoleDetect : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
+        gameState.isWin = true;
+        
         if (other.gameObject.CompareTag("ball")) {
             other.gameObject.layer = 6;
         }
         
-        GetComponentInChildren<ParticleSystem>().Play();
-    }
-
-    private void OnTriggerExit(Collider other) {
-        if (other.gameObject.CompareTag("ball")) {
-            other.gameObject.layer = 3;
-        }
+       confettiSystem.Play();
     }
 
     // Update is called once per frame
