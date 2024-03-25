@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
-using Valve.VR;
 
 public class ClubGrab : MonoBehaviour, Grabbable
 {
     [SerializeField]
     private Transform attachPivot;
     private GameObject attachedHand;
+    private GameObject detachedHand;
+
+    [SerializeField]
+    private Transform releasedSnapPoint;
 
 
 
@@ -31,6 +33,13 @@ public class ClubGrab : MonoBehaviour, Grabbable
 
         attachedHand = hand;
 
+        // Hide the Inactive Hand.
+        string otherhandTag = attachedHand.CompareTag("left") ? "right" : "left";
+        GameObject otherHand = GameObject.FindGameObjectWithTag(otherhandTag);
+        detachedHand = otherHand;
+        otherHand.SetActive(false);
+
+        // Dynamic Physic Layer to Prevent Collision with Non ball objects when held
         gameObject.layer = 6;
         SetChildLayers(gameObject, 6);
     }
@@ -40,9 +49,17 @@ public class ClubGrab : MonoBehaviour, Grabbable
         attachedHand.GetComponent<FixedJoint>().connectedBody = null;
         // // Manually Destroy the Fixed Joint
         Destroy(attachedHand.GetComponent<FixedJoint>());
+        
+        // Reset Hand References.
+        attachedHand = null;
+        detachedHand.SetActive(true);
+        detachedHand = null;
 
+        // Dynamic Physic Layer to Enable Collision with Non ball objects when released
         gameObject.layer = 9;
         SetChildLayers(gameObject, 9);
+
+        transform.position = releasedSnapPoint.position;
     }
 
     public GameObject GetAttachedHand() {
