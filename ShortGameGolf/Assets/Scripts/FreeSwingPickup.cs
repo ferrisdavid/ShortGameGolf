@@ -7,6 +7,10 @@ public class FreeSwingPickup : MonoBehaviour
     // Reference to global GameState.
     private GameState gameState;
 
+    // Reference to Confetti Particle System
+    [SerializeField]
+    private ParticleSystem confettiSystem;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,5 +33,8 @@ public class FreeSwingPickup : MonoBehaviour
     // On Pickup Collision Functionality Handler.
     public void OnPickupActivate() {
         gameState.AddFreeStroke();
+        confettiSystem.Play();
+        
+        Destroy(gameObject);
     }
 }

@@ -6,6 +6,9 @@ public class ReduceScorePickup : MonoBehaviour
 {
     // Reference to global GameState.
     private GameState gameState;
+    // Reference to Confetti Particle System
+    [SerializeField]
+    private ParticleSystem confettiSystem;
 
     // Start is called before the first frame update
     void Start()
@@ -29,5 +32,7 @@ public class ReduceScorePickup : MonoBehaviour
     // On Pickup Collision Functionality Handler.
     public void OnPickupActivate() {
         gameState.DecrementStrokes();
+        confettiSystem.Play();
+        Destroy(gameObject);
     }
 }
