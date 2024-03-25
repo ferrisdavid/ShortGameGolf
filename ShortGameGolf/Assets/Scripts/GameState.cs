@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
+    // Win State.
+    public bool isWin = false;
+
     // Current Number of Strokes for the Game.
     [SerializeField]
     private int strokeCount = 0;
