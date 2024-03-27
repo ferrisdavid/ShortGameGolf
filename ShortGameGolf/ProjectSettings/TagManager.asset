@@ -8,6 +8,7 @@ TagManager:
   - left
   - right
   - ball
+  - club
   layers:
   - Default
   - TransparentFX
