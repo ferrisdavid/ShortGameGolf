@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BallDynamicMovement : MonoBehaviour
 {
-    // Initial Freeze State.
-    private bool isFrozen = true;
 
     // Rigidbody Values.
     [SerializeField]
@@ -31,8 +29,13 @@ public class BallDynamicMovement : MonoBehaviour
 
         // Freeze the ball initially.
         ballRB.constraints = RigidbodyConstraints.FreezePosition;
+    }
 
-        // TODO; Determine how to unfreeze the ball after the club comes in close contact with the ball.
+    void OnCollisionEnter(Collision collision) {
+        if (collision.collider.gameObject.CompareTag("club") && ballRB.constraints == RigidbodyConstraints.FreezePosition) {
+            ballRB.constraints = RigidbodyConstraints.None;
+            ballRB.AddForce(collision.impulse);
+        }
     }
 
     private void FixedUpdate() {
@@ -41,7 +44,7 @@ public class BallDynamicMovement : MonoBehaviour
             ballRB.angularDrag = baseAngularDrag;
         }
         else if (ballRB.velocity.magnitude <= 0.3) {
-            ballRB.angularDrag = Mathf.Lerp(ballRB.angularDrag, 25, dragIncrement*100);
+            ballRB.angularDrag = Mathf.Lerp(ballRB.angularDrag, 20, dragIncrement*100);
         }
         else if (ballRB.velocity.magnitude <= 1) {
             ballRB.angularDrag = Mathf.Lerp(ballRB.angularDrag, 1, dragIncrement);
