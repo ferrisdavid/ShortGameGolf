@@ -31,7 +31,7 @@ public class ClubManager : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         // Check for Club Layer
         if (other.gameObject.layer == 6) {
-            highlightableMesh.materials[1].SetColor("g_vOutlineColor", new Color( 0.5f, 0.5f, 0.5f, 1 ));
+            highlightableMesh.materials[1].SetColor("g_vOutlineColor", new Color( 0.85f, 0.8f, 0.45f, 1 ));
         }
     }
 
