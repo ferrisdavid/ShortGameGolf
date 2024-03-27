@@ -9,8 +9,7 @@ public class ClubGrab : MonoBehaviour, Grabbable
     private GameObject attachedHand;
     private GameObject detachedHand;
 
-    [SerializeField]
-    private Transform releasedSnapPoint;
+    public bool inBag = true;
 
 
 
@@ -42,6 +41,8 @@ public class ClubGrab : MonoBehaviour, Grabbable
         // Dynamic Physic Layer to Prevent Collision with Non ball objects when held
         gameObject.layer = 6;
         SetChildLayers(gameObject, 6);
+
+        inBag = false;
     }
 
     public void OnRelease() {
@@ -58,8 +59,6 @@ public class ClubGrab : MonoBehaviour, Grabbable
         // Dynamic Physic Layer to Enable Collision with Non ball objects when released
         gameObject.layer = 9;
         SetChildLayers(gameObject, 9);
-
-        transform.position = releasedSnapPoint.position;
     }
 
     public GameObject GetAttachedHand() {
@@ -82,8 +81,13 @@ public class ClubGrab : MonoBehaviour, Grabbable
     // Update is called once per frame
     void Update()
     {
+        if (inBag) {
+            GetComponent<Rigidbody>().isKinematic = true;
+        }
 
+        if (!inBag && GetComponent<Rigidbody>().isKinematic) {
+            GetComponent<Rigidbody>().isKinematic = false;
+        }
     }
-
     
 }
