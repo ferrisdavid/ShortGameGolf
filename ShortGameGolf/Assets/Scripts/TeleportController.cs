@@ -51,7 +51,14 @@ public class TeleportController : MonoBehaviour
 
     private void handleTeleport(Vector3 teleportPoint, Vector3 camPlayerDiff)
     {
-        rig.transform.position = new Vector3(camPlayerDiff.x + teleportPoint.x, rig.transform.position.y, camPlayerDiff.z + teleportPoint.z);
+        // Stop the Ball.
+        ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        // Teleport Player.
+        rig.transform.position = new Vector3(camPlayerDiff.x + teleportPoint.x, ball.position.y, camPlayerDiff.z + teleportPoint.z);
+        // Get Look Vector to Hole.
+        Vector3 lookToHole = GameObject.Find("CourseHole").transform.position - rig.transform.position;
+        lookToHole.y = 0.0f;
+        rig.transform.localRotation = Quaternion.LookRotation(lookToHole);
     }
 
     IEnumerator TeleportFade(Vector3 teleportPoint, Vector3 camPlayerDiff)
