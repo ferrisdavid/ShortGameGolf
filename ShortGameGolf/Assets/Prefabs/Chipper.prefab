@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 97495237029880177}
   m_Layer: 0
   m_Name: Grip
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 2804549197859812739}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,14 +125,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97495237141349330}
-  m_LocalRotation: {x: -0.5765096, y: -0, z: 0.0000000074505797, w: 0.81709033}
-  m_LocalPosition: {x: -0.0244, y: -0.2186, z: -0.002}
-  m_LocalScale: {x: 0.07, y: 0.0031098, z: 0.025}
+  m_LocalRotation: {x: -0.4824112, y: 0.32237864, z: 0.66226786, w: 0.47408092}
+  m_LocalPosition: {x: 0.0054, y: -0.2274, z: 0.0274}
+  m_LocalScale: {x: 0.07, y: 0.0078908065, z: 0.035119265}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3775330372679396487}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -70.411, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -62.178, y: -45.573, z: 137.235}
 --- !u!33 &97495237141349334
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 97495237417248394}
   m_Layer: 0
   m_Name: Bend
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,14 +236,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97495237417248392}
-  m_LocalRotation: {x: -0.060529884, y: -0.0012819553, z: 0.021135256, w: 0.99794185}
+  m_LocalRotation: {x: -0.05894143, y: -0.069579154, z: 0.025228426, w: 0.99551404}
   m_LocalPosition: {x: 0.0003, y: -0.20266, z: 0.0002}
   m_LocalScale: {x: 0.006, y: 0.01, z: 0.006}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3775330372679396487}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -6.936, y: -0.295, z: 2.444}
+  m_LocalEulerAnglesHint: {x: -6.537, y: -8.189, z: 3.372}
 --- !u!33 &97495237417248396
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 97495237717260550}
   m_Layer: 0
   m_Name: Rod
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 1339292625314195020}
   m_Layer: 0
   m_Name: Chipper
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -458,6 +458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachPivot: {fileID: 8392345734860571114}
+  inBag: 1
 --- !u!54 &8913851607952645557
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -502,7 +503,7 @@ GameObject:
   - component: {fileID: 2125562556553269559}
   m_Layer: 0
   m_Name: AttachPivot
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

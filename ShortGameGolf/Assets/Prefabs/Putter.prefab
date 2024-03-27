@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6398806766131949994}
   m_Layer: 9
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 3180983573646810176}
   m_Layer: 9
   m_Name: Face
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 7108213213099717039}
   m_Layer: 9
   m_Name: Putter
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,6 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachPivot: {fileID: 878192617451431590}
+  inBag: 1
 --- !u!1 &7108213213840878502
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +294,7 @@ GameObject:
   - component: {fileID: 7108213213099717047}
   m_Layer: 9
   m_Name: Grip
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -407,7 +408,7 @@ GameObject:
   - component: {fileID: 7108213214034744977}
   m_Layer: 9
   m_Name: Rod
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -505,7 +506,7 @@ GameObject:
   - component: {fileID: 661645053}
   m_Layer: 9
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -603,7 +604,7 @@ GameObject:
   - component: {fileID: 4900710121540115226}
   m_Layer: 0
   m_Name: HitDetector
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -714,7 +715,7 @@ GameObject:
   - component: {fileID: 8751208598640550815}
   m_Layer: 9
   m_Name: AttachPivot
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
