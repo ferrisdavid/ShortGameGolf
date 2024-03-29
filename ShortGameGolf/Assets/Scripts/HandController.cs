@@ -52,17 +52,29 @@ public class HandController : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         UpdateInteractableObject(other);
+
+        // If Grabbable Object implements hover enter function than perform this action.
+        Interactable interactableElement;
+        if (grabableObject.TryGetComponent<Interactable>(out interactableElement)) interactableElement.OnHoverEnter(transform);
     }
 
     // Collider Trigger Stay Method - Runs once per frame and ensures that controller hovering over an object for an extended period of time assigns the object as grabbable if it meets the necessary conditions
     public void OnTriggerStay(Collider other)
     {
         UpdateInteractableObject(other);
+
+        // If Grabbable Object implements hover stay function than perform this action.
+        Interactable interactableElement;
+        if (grabableObject.TryGetComponent<Interactable>(out interactableElement)) interactableElement.OnHoverStay(transform);
     }
 
     // Collider Trigger Exit Method - Reset Grabable Object on Trigger Exit
     public void OnTriggerExit(Collider other)
     {
+        // If Grabbable Object implements hover exit function than perform this action.
+        Interactable interactableElement;
+        if (grabableObject.TryGetComponent<Interactable>(out interactableElement)) interactableElement.OnHoverExit(transform);
+        
         // Reset the Grabable Object
         grabableObject = null;
     }

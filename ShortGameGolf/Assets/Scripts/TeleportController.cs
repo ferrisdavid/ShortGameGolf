@@ -27,7 +27,7 @@ public class TeleportController : MonoBehaviour
     void Start()
     {
         PlayerManager = GetComponent<PlayerController>();
-        Teleport.AddOnStateDownListener(onTeleportRequest, handType);
+        // Teleport.AddOnStateDownListener(onTeleportRequest, handType);
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class TeleportController : MonoBehaviour
         
     }
 
-    public void onTeleportRequest(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    public void onTeleportRequest()
     {
         if (PlayerManager.isTeleportEnabled)
         {
