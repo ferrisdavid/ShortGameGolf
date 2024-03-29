@@ -133,10 +133,10 @@ Material:
     - _FadeDistance: 1
     - _FarFadeDistance: 2
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 0.55
     - _GlossyReflections: 1
     - _IsGrass: 1
-    - _Metallic: 0
+    - _Metallic: 1
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Offset1: 0
