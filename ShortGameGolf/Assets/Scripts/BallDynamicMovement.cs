@@ -17,11 +17,19 @@ public class BallDynamicMovement : MonoBehaviour
     // Ball Rigidbody
     private Rigidbody ballRB;
 
+    // Audio Source and Clips (Ball Hit Sounds).
+    private AudioSource audio;
+    [SerializeField]
+    private AudioClip putClip;
+    [SerializeField]
+    private AudioClip smackClip;
+
 
     // Start is called before the first frame update
     void Start()
     {
         ballRB = GetComponent<Rigidbody>();
+        audio = GetComponent<AudioSource>();
 
         // Initialize the Balls Drag Physics
         ballRB.drag = baseDrag;
@@ -32,9 +40,18 @@ public class BallDynamicMovement : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision) {
-        if (collision.collider.gameObject.CompareTag("club") && ballRB.constraints == RigidbodyConstraints.FreezePosition) {
-            ballRB.constraints = RigidbodyConstraints.None;
-            ballRB.AddForce(collision.impulse);
+        if (collision.collider.gameObject.CompareTag("club")) {
+            if (ballRB.constraints == RigidbodyConstraints.FreezePosition) {
+                ballRB.constraints = RigidbodyConstraints.None;
+                ballRB.AddForce(collision.impulse);
+            }
+            // Play Hit Audio Based on Collision Force.
+            if (collision.impulse.magnitude >= 2) {
+                audio.PlayOneShot(smackClip);
+            } 
+            else {
+                audio.PlayOneShot(putClip);
+            } 
         }
     }
 
