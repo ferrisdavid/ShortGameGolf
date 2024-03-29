@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 5816071392323602759}
   - component: {fileID: 2065946377358539836}
   - component: {fileID: 3962970641571721064}
+  - component: {fileID: 6376089107522299654}
   m_Layer: 0
   m_Name: Pressable
   m_TagString: Untagged
@@ -162,6 +163,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 7180b27dacdbc274c9fb4e97f7aeab83, type: 2}
+  - {fileID: 2100000, guid: 425031c746a6df44aa1dfdb17c2b8b45, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -213,6 +215,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6376089107522299654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5024973583892982282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a762af939e3b0f947b9bb3cccce06859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: {fileID: 0}
+  player: {fileID: 0}
+  compressionThreshold: 0.025
+  buttonMaxCompression: 0.05
+  inactiveColor: {r: 0.4784314, g: 0.20392159, b: 0.12941177, a: 0}
+  activeColor: {r: 0.35297784, g: 0.5754717, b: 0.2741634, a: 0}
+  highlightColor: {r: 0.8301887, g: 0.6124304, b: 0.21537916, a: 0}
 --- !u!1 &7452409119920582239
 GameObject:
   m_ObjectHideFlags: 0
