@@ -5,10 +5,6 @@ using Valve.VR;
 
 public class Button : MonoBehaviour, Interactable
 {
-    // Reference to GameState.
-    [SerializeField]
-    private GameState gameState;
-
     // Reference to Player Object.
     [SerializeField]
     private PlayerController player;
