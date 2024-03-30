@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
-    // Win State.
+    // Global Course Info.
+    public int holeNumber;
+    public int holePar;
+
+    // Hole Win State.
     public bool isWin = false;
 
     // Current Number of Strokes for the Game.
-    [SerializeField]
-    private int strokeCount = 0;
-
+    public int strokeCount = 0;
     private int freeStrokes = 0;
+
+    // Course Hole Scores.
+    public int[] holeScores;
 
     // Start is called before the first frame update
     void Start()
