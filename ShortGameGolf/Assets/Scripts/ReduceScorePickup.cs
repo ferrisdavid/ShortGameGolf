@@ -31,8 +31,12 @@ public class ReduceScorePickup : MonoBehaviour
 
     // On Pickup Collision Functionality Handler.
     public void OnPickupActivate() {
+        // Handle Pickup Specific GameState Changes
         gameState.DecrementStrokes();
+        
+        // Handle General Pickup Collection State Changes
         confettiSystem.Play();
+        GetComponent<AudioSource>().Play();
         Destroy(gameObject);
     }
 }
