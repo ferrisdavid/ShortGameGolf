@@ -27,6 +27,7 @@ public class HoleDetect : MonoBehaviour
         }
         
        confettiSystem.Play();
+       GetComponentInParent<AudioSource>().Play();
     }
 
     // Update is called once per frame
