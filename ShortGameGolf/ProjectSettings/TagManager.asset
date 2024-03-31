@@ -9,6 +9,7 @@ TagManager:
   - right
   - ball
   - club
+  - sand
   layers:
   - Default
   - TransparentFX
