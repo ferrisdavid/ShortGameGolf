@@ -14,6 +14,13 @@ public class BallDynamicMovement : MonoBehaviour
     [SerializeField]
     private float dragIncrement;
 
+    // Environment Modifiers.
+    private bool isModifiedPhysics = false;
+    [SerializeField]
+    private float sandDrag;
+    [SerializeField]
+    private float sandAngularDrag;
+
     // Ball Rigidbody
     private Rigidbody ballRB;
 
@@ -53,9 +60,30 @@ public class BallDynamicMovement : MonoBehaviour
                 audio.PlayOneShot(putClip);
             } 
         }
+
+        // Rest Ground Environment Physics Modifiers.
+        if (collision.collider.gameObject.CompareTag("sand")) {
+            isModifiedPhysics = true;
+        }
+        else if (!collision.collider.gameObject.CompareTag("club")) {
+            isModifiedPhysics = false;
+        }
     }
 
     private void FixedUpdate() {
+        // Handle Dynamic Drag Forces to Prevent infinite rolling
+        if (!isModifiedPhysics) ApplyBaseDrag();
+        else ApplySandDrag();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    // Ball Dynamic Drag Functions.
+    private void ApplyBaseDrag() {
         // Handle Dynamic Drag Forces to Prevent infinite rolling
         if (ballRB.velocity.magnitude <= Mathf.Epsilon) {
             ballRB.angularDrag = baseAngularDrag;
@@ -66,12 +94,19 @@ public class BallDynamicMovement : MonoBehaviour
         else if (ballRB.velocity.magnitude <= 1) {
             ballRB.angularDrag = Mathf.Lerp(ballRB.angularDrag, 1, dragIncrement);
         }
-
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void ApplySandDrag() {
+        // Handle Dynamic Drag Forces to Prevent infinite rolling (When on Sand)
+        if (ballRB.velocity.magnitude <= Mathf.Epsilon) {
+            ballRB.angularDrag = sandAngularDrag;
+            ballRB.drag = sandDrag;
+        }
+        else if (ballRB.velocity.magnitude <= 0.3) {
+            ballRB.angularDrag = Mathf.Lerp(ballRB.angularDrag, 25, dragIncrement*100);
+        }
+        else if (ballRB.velocity.magnitude <= 1) {
+            ballRB.angularDrag = Mathf.Lerp(ballRB.angularDrag, 3, dragIncrement);
+        }
     }
 }
