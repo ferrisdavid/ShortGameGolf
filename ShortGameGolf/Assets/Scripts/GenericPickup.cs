@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class GenericPickup : MonoBehaviour
 {
+    // Pickup Identification Fields.
+    public string pickupName;
+
+    // Pickup Movement Fields.
     [SerializeField]
     private float maxHeightOffset;
 

@@ -7733,6 +7733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c28dd6b154ed248b5fd4fb314abe0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupName: Free Swing
   maxHeightOffset: 0.2
   spinSpeed: 7
 --- !u!114 &2122869369324073953

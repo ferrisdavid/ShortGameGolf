@@ -9,11 +9,15 @@ public class ReduceScorePickup : MonoBehaviour
     // Reference to Confetti Particle System
     [SerializeField]
     private ParticleSystem confettiSystem;
+    // Reference to Game ScoreCard Object
+    private ScorePadController scorePad;
 
     // Start is called before the first frame update
     void Start()
     {
         gameState = GameObject.Find("GameState").GetComponent<GameState>();
+        scorePad = GameObject.Find("ScorePad").GetComponent<ScorePadController>();
+
     }
 
     // Update is called once per frame
@@ -35,6 +39,7 @@ public class ReduceScorePickup : MonoBehaviour
         gameState.DecrementStrokes();
         
         // Handle General Pickup Collection State Changes
+        scorePad.SetActivePickupLabel(GetComponent<GenericPickup>().pickupName);
         confettiSystem.Play();
         GetComponent<AudioSource>().Play();
         Destroy(gameObject);
