@@ -93,7 +93,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 97495237029880207}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -109,8 +109,8 @@ GameObject:
   - component: {fileID: 97495237141349331}
   - component: {fileID: 97495237141349334}
   - component: {fileID: 97495237141349333}
-  - component: {fileID: 4403595146246986757}
   - component: {fileID: 2804549197859812739}
+  - component: {fileID: 1527823168186386815}
   m_Layer: 0
   m_Name: Head
   m_TagString: club
@@ -125,14 +125,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97495237141349330}
-  m_LocalRotation: {x: -0.4824112, y: 0.32237864, z: 0.66226786, w: 0.47408092}
-  m_LocalPosition: {x: 0.0054, y: -0.2274, z: 0.0274}
+  m_LocalRotation: {x: -0.46567604, y: 0.432761, z: 0.58584934, w: 0.5026374}
+  m_LocalPosition: {x: 0.0035, y: -0.2269, z: 0.0239}
   m_LocalScale: {x: 0.07, y: 0.0078908065, z: 0.035119265}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3775330372679396487}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -62.178, y: -45.573, z: 137.235}
+  m_LocalEulerAnglesHint: {x: -77.213, y: -29.976, z: 122.876}
 --- !u!33 &97495237141349334
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -183,20 +183,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4403595146246986757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 97495237141349330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 584654e97ccd4f948b5de76806ab923e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minVibrationForce: 0
-  maxVibrationForce: 0.2
 --- !u!65 &2804549197859812739
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -210,6 +196,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0144802, y: 2.0000007, z: 0.9907517}
   m_Center: {x: 0.0071831453, y: -0.0010332641, z: -0.0037867846}
+--- !u!114 &1527823168186386815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97495237141349330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 584654e97ccd4f948b5de76806ab923e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVibrationForce: 0.01
+  maxVibrationForce: 0.5
 --- !u!1 &97495237417248392
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 97495237417248392}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -401,7 +401,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 97495237717260548}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 3775330372679396487}
   - component: {fileID: -2837917900712621039}
   - component: {fileID: 8913851607952645557}
-  - component: {fileID: 1339292625314195020}
+  - component: {fileID: 7797547990260537078}
   m_Layer: 0
   m_Name: Chipper
   m_TagString: club
@@ -474,8 +474,8 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!136 &1339292625314195020
+  m_CollisionDetection: 1
+--- !u!136 &7797547990260537078
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -485,10 +485,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.01
-  m_Height: 0.45
+  m_Radius: 0.02
+  m_Height: 0.41869897
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: -0.0028998125, y: 0.01565054, z: -0.004194416}
 --- !u!1 &6112150547570666534
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +582,7 @@ BoxCollider:
   m_GameObject: {fileID: 6112150547570666534}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0000001, z: 1}
   m_Center: {x: 0.000000029816725, y: -0.0000000590997, z: 0}
