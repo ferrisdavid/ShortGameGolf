@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 97495237141349334}
   - component: {fileID: 97495237141349333}
   - component: {fileID: 2804549197859812739}
-  - component: {fileID: 1527823168186386815}
+  - component: {fileID: 7950475604438248424}
   m_Layer: 0
   m_Name: Head
   m_TagString: club
@@ -196,7 +196,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0144802, y: 2.0000007, z: 0.9907517}
   m_Center: {x: 0.0071831453, y: -0.0010332641, z: -0.0037867846}
---- !u!114 &1527823168186386815
+--- !u!114 &7950475604438248424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 97495237141349330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 584654e97ccd4f948b5de76806ab923e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7b4b54429d2c7341b9fd2ec62985233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   minVibrationForce: 0.01
