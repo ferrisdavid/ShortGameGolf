@@ -50,8 +50,8 @@ public class BallDynamicMovement : MonoBehaviour
         if (collision.collider.gameObject.CompareTag("club")) {
             if (ballRB.constraints == RigidbodyConstraints.FreezePosition) {
                 ballRB.constraints = RigidbodyConstraints.None;
-                ballRB.AddForce(collision.impulse);
             }
+
             // Play Hit Audio Based on Collision Force.
             if (collision.impulse.magnitude >= 2) {
                 audio.PlayOneShot(smackClip);
@@ -88,6 +88,9 @@ public class BallDynamicMovement : MonoBehaviour
         if (ballRB.velocity.magnitude <= Mathf.Epsilon) {
             ballRB.angularDrag = baseAngularDrag;
         }
+        else if (ballRB.velocity.magnitude <= 0.08) {
+            ballRB.angularDrag = Mathf.Lerp(ballRB.angularDrag, 45, dragIncrement*100);
+        }
         else if (ballRB.velocity.magnitude <= 0.3) {
             ballRB.angularDrag = Mathf.Lerp(ballRB.angularDrag, 20, dragIncrement*100);
         }
@@ -101,6 +104,9 @@ public class BallDynamicMovement : MonoBehaviour
         if (ballRB.velocity.magnitude <= Mathf.Epsilon) {
             ballRB.angularDrag = sandAngularDrag;
             ballRB.drag = sandDrag;
+        }
+        else if (ballRB.velocity.magnitude <= 0.1) {
+            ballRB.angularDrag = Mathf.Lerp(ballRB.angularDrag, 45, dragIncrement*100);
         }
         else if (ballRB.velocity.magnitude <= 0.3) {
             ballRB.angularDrag = Mathf.Lerp(ballRB.angularDrag, 25, dragIncrement*100);
