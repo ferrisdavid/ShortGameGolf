@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8076875246613008797}
   - component: {fileID: 4640608829029505758}
   - component: {fileID: 6742422696138873070}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Par
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 91769530541809276}
   - component: {fileID: 299461931394138351}
   - component: {fileID: 993124733282182037}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 3359132919657508724}
   - component: {fileID: 2858975842137238549}
   - component: {fileID: 6489440444311003529}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: StrokeCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 6844698871171553143}
   - component: {fileID: 4191382671970235884}
   - component: {fileID: 7259821560437353470}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Binding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ BoxCollider:
   m_GameObject: {fileID: 3343929363101691637}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 5924570901232986733}
   - component: {fileID: 1206366242336315559}
   - component: {fileID: 4592640405465946949}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Paper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -706,7 +706,7 @@ BoxCollider:
   m_GameObject: {fileID: 4683855755372810912}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -721,7 +721,7 @@ GameObject:
   - component: {fileID: 4104539100780180902}
   - component: {fileID: 6054713230281089214}
   - component: {fileID: 88668563065212690}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 7510401748106881765}
   - component: {fileID: 6767668535678870069}
   - component: {fileID: 634704619220949635}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TableHoleScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1065,7 +1065,7 @@ GameObject:
   - component: {fileID: 7812909511077743295}
   - component: {fileID: 7994653026648995824}
   - component: {fileID: 9204526634178968526}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TableHoleNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1237,7 +1237,7 @@ GameObject:
   - component: {fileID: 1594894813574397658}
   - component: {fileID: 5949820001040945769}
   - component: {fileID: 8073258542246598955}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HoleHeader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1409,7 +1409,7 @@ GameObject:
   - component: {fileID: 4545824769525993363}
   - component: {fileID: 1113606112006271768}
   - component: {fileID: 6508607950818106620}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1581,7 +1581,7 @@ GameObject:
   - component: {fileID: 2925254313598872518}
   - component: {fileID: 4031341885355202149}
   - component: {fileID: 1769595000014337738}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ScoresHeader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1753,7 +1753,7 @@ GameObject:
   - component: {fileID: 8865292829986462038}
   - component: {fileID: 1489723800955326656}
   - component: {fileID: 3812261039954039636}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PickupInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1926,7 +1926,7 @@ GameObject:
   - component: {fileID: 5134736655448544535}
   - component: {fileID: 3312916218183928045}
   - component: {fileID: 923751354136851856}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ScorePad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1942,8 +1942,8 @@ Transform:
   m_GameObject: {fileID: 8332135149596830374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4133447451171743145}
   - {fileID: 224756509140795669}
@@ -1970,7 +1970,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8332135149596830374}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.11860868, y: 0.84214234, z: 0.5111879}
@@ -1986,7 +1986,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -2022,7 +2022,7 @@ GameObject:
   - component: {fileID: 2507020879091876895}
   - component: {fileID: 6297855693900206441}
   - component: {fileID: 3349494454781579289}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HoleNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2194,6 +2194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pencil
       objectReference: {fileID: 0}
+    - target: {fileID: 1217707077934046, guid: acd1035e6037f5340b25cdc9d4460022, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4105059492611526, guid: acd1035e6037f5340b25cdc9d4460022, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2253,6 +2257,10 @@ PrefabInstance:
     - target: {fileID: 4105059492611526, guid: acd1035e6037f5340b25cdc9d4460022, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65435020557056238, guid: acd1035e6037f5340b25cdc9d4460022, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acd1035e6037f5340b25cdc9d4460022, type: 3}
