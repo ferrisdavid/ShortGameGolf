@@ -41,6 +41,7 @@ public class ClubGrab : MonoBehaviour, Grabbable
         // Dynamic Physic Layer to Prevent Collision with Non ball objects when held
         gameObject.layer = 6;
         SetChildLayers(gameObject, 6);
+        GetComponent<CapsuleCollider>().isTrigger = true;
 
         inBag = false;
     }
@@ -59,6 +60,7 @@ public class ClubGrab : MonoBehaviour, Grabbable
         // Dynamic Physic Layer to Enable Collision with Non ball objects when released
         gameObject.layer = 9;
         SetChildLayers(gameObject, 9);
+        GetComponent<CapsuleCollider>().isTrigger = false;
     }
 
     public GameObject GetAttachedHand() {
