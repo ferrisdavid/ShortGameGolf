@@ -799,9 +799,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3646793961410150038}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: -0.033, z: 0.002}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: -0.086571, z: 0.0022966857}
+  m_LocalScale: {x: 7.9126444, y: 2.6233637, z: 1.1483428}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5508757220189626411}
@@ -809,8 +809,8 @@ Transform:
   - {fileID: 6719881984432058485}
   - {fileID: 6699041455399399883}
   - {fileID: 88782052143665914}
-  m_Father: {fileID: 6388066220036630433}
-  m_RootOrder: 2
+  m_Father: {fileID: 7282865942583319784}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &3793508518422847011
 GameObject:
@@ -1258,8 +1258,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5378949086935808181}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.033, z: 0.002}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.086571, z: 0.0022966857}
+  m_LocalScale: {x: 7.9126444, y: 2.6233637, z: 1.1483428}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8153580243461181175}
@@ -1267,8 +1267,8 @@ Transform:
   - {fileID: 6134840397800203619}
   - {fileID: 4140426382733957451}
   - {fileID: 7134364873615459086}
-  m_Father: {fileID: 6388066220036630433}
-  m_RootOrder: 1
+  m_Father: {fileID: 7282865942583319784}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5422217421914547551
 GameObject:
@@ -1301,7 +1301,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6388066220036630433}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &6766791202004083200
 ParticleSystem:
@@ -1439,7 +1439,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 12
+      scalar: 7
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -6279,8 +6279,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7282865942583319784}
-  - {fileID: 2561758730226640469}
-  - {fileID: 4483146687994322289}
   - {fileID: 238731217012284503}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -6337,7 +6335,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: df3dd20a3b0b61447b562f7aaec549ae, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 10c43daa93be37c42bec335a1e1df1bb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -6383,7 +6381,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.3
+      value: 0.7
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -6487,7 +6485,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.12638, y: 0.38119, z: 0.87082}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2561758730226640469}
+  - {fileID: 4483146687994322289}
   m_Father: {fileID: 6388066220036630433}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

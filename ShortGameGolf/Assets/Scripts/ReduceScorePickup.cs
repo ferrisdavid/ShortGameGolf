@@ -39,9 +39,16 @@ public class ReduceScorePickup : MonoBehaviour
         gameState.DecrementStrokes();
         
         // Handle General Pickup Collection State Changes
-        scorePad.SetActivePickupLabel(GetComponent<GenericPickup>().pickupName);
+        StartCoroutine(PickupEffect());
+    }
+
+    IEnumerator PickupEffect() {
         confettiSystem.Play();
         GetComponent<AudioSource>().Play();
-        Destroy(gameObject);
+        gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        
+        yield return new WaitForSeconds(1);
+
+        Destroy(gameObject); 
     }
 }
