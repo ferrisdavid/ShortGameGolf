@@ -20,14 +20,13 @@ public class HoleDetect : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        gameState.isWin = true;
-        
         if (other.gameObject.CompareTag("ball")) {
+            gameState.isWin = true;
+
             other.gameObject.layer = 6;
+            confettiSystem.Play();
+            GetComponentInParent<AudioSource>().Play();
         }
-        
-       confettiSystem.Play();
-       GetComponentInParent<AudioSource>().Play();
     }
 
     // Update is called once per frame
