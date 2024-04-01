@@ -41,6 +41,7 @@ public class Button : MonoBehaviour, Interactable
     // Start is called before the first frame update
     void Start()
     {
+        buttonLocalStartPos = transform.localPosition;
         buttonMesh = GetComponent<MeshRenderer>();
         buttonMesh.materials[0].color = inactiveColor;
         buttonMesh.materials[1].SetColor("g_vOutlineColor", Color.clear);
@@ -49,6 +50,12 @@ public class Button : MonoBehaviour, Interactable
     // Update is called once per frame
     void Update()
     {
+        if (!attachedHand)
+        {
+            // Lerp Button Compression back to original rest
+            transform.localPosition = Vector3.Lerp(transform.localPosition, buttonLocalStartPos, 0.2f);
+        }
+
         if (player.isTeleportEnabled) {
             FlashActiveHighlight();
         }
@@ -73,12 +80,12 @@ public class Button : MonoBehaviour, Interactable
     public void OnHoverStay(Transform hand) {
         if (attachedHand)
         {
-            float newHandPositionY = transform.parent.InverseTransformPoint(attachedHand.position).z;
+            float newHandPositionY = transform.parent.InverseTransformPoint(attachedHand.position).y;
             float handMovement = newHandPositionY - offsetOnEnter;
 
             float compression = Mathf.Clamp(buttonLocalStartPos.y + handMovement, -buttonMaxCompression, 0.0f);
             transform.localPosition = new Vector3(transform.localPosition.x, buttonLocalStartPos.y + compression, transform.localPosition.z);
-
+            
             // Apply Impulse force to selected object on button compression
             if (Mathf.Abs(compression) > compressionThreshold && isFromRest) {
                 // Execute Teleport Action.
@@ -96,12 +103,12 @@ public class Button : MonoBehaviour, Interactable
     private void FlashActiveHighlight() {
 
         if (buttonMesh.materials[0].color != activeColor) {
-            buttonMesh.materials[0].color = Color.Lerp(buttonMesh.materials[0].color, activeColor, 0.2f);
-            buttonMesh.materials[1].SetColor("g_vOutlineColor", Color.Lerp(Color.clear, highlightColor, 0.2f)); 
+            buttonMesh.materials[0].color = Color.Lerp(buttonMesh.materials[0].color, activeColor, 0.1f);
+            buttonMesh.materials[1].SetColor("g_vOutlineColor", Color.Lerp(buttonMesh.materials[1].GetColor("g_vOutlineColor"), highlightColor, 0.1f)); 
         }
         else {
-            buttonMesh.materials[0].color = Color.Lerp(buttonMesh.materials[0].color, inactiveColor, 0.2f);
-            buttonMesh.materials[1].SetColor("g_vOutlineColor", Color.Lerp(highlightColor, Color.clear, 0.2f)); 
+            buttonMesh.materials[0].color = Color.Lerp(buttonMesh.materials[0].color, inactiveColor, 0.1f);
+            buttonMesh.materials[1].SetColor("g_vOutlineColor", Color.Lerp(buttonMesh.materials[1].GetColor("g_vOutlineColor"), Color.clear, 0.1f)); 
         }
 
     }

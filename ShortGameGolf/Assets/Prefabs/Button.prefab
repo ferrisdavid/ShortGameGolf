@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6343836296123490094}
   - component: {fileID: 1120301993778160485}
   - component: {fileID: 6556214908327685159}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 2065946377358539836}
   - component: {fileID: 3962970641571721064}
   - component: {fileID: 6376089107522299654}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pressable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,10 +227,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a762af939e3b0f947b9bb3cccce06859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: {fileID: 0}
   player: {fileID: 0}
-  compressionThreshold: 0.025
-  buttonMaxCompression: 0.05
+  compressionThreshold: 0.015
+  buttonMaxCompression: 0.025
   inactiveColor: {r: 0.4784314, g: 0.20392159, b: 0.12941177, a: 0}
   activeColor: {r: 0.35297784, g: 0.5754717, b: 0.2741634, a: 0}
   highlightColor: {r: 0.8301887, g: 0.6124304, b: 0.21537916, a: 0}
@@ -243,7 +242,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1927795946269175583}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
