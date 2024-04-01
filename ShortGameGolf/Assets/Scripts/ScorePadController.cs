@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ScorePadController : MonoBehaviour
+public class ScorePadController : MonoBehaviour, Grabbable
 {
     // Reference to GameState.
     [SerializeField]
@@ -27,6 +27,7 @@ public class ScorePadController : MonoBehaviour
     private TextMeshPro[] finalScoreLabels; 
 
     public void OnGrab(GameObject hand) {
+        gameObject.transform.position = hand.transform.position;
         // Create Fixed Joint for hand
         FixedJoint joint = hand.AddComponent<FixedJoint>();
         // Assign Break Force and Break Torque Properties for Joint
@@ -63,7 +64,7 @@ public class ScorePadController : MonoBehaviour
         // Fix Position of Card to Bag when not held.
         if (!attachedHand) {
             transform.position = restingSnapPoint.position;
-            transform.localRotation = Quaternion.AngleAxis(-90.0f, Vector3.right);
+            transform.localRotation = Quaternion.AngleAxis(90.0f, Vector3.right);
         }
 
         // Updaters for Score Card Values.
