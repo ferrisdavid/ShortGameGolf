@@ -11,13 +11,15 @@ public class PutController : MonoBehaviour
     // Vibration Instance Variables
     public float minVibrationForce = 0.0f;
     public float maxVibrationForce = 0.2f;
+
+    // Club Rigidbody;
+    Rigidbody clubRB;
     
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("ball")) {
             // Increment Game State Stroke Count
             gameState.IncrementStrokes();
 
-            Rigidbody clubRB = gameObject.GetComponentInParent<Rigidbody>();
             GameObject attachedHand = gameObject.GetComponentInParent<ClubGrab>().GetAttachedHand();
 
             // Calculate Vibration force based on club velocity
@@ -33,6 +35,7 @@ public class PutController : MonoBehaviour
     void Start()
     {
         gameState = GameObject.Find("GameState").GetComponent<GameState>();
+        clubRB = gameObject.GetComponentInParent<Rigidbody>();
     }
 
     // Update is called once per frame
