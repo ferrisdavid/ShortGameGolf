@@ -9,6 +9,11 @@ public class ClubGrab : MonoBehaviour, Grabbable
     private GameObject attachedHand;
     private GameObject detachedHand;
 
+    [SerializeField]
+    private bool shouldFlipHead = false;
+    [SerializeField]
+    private Vector3 flippedHead;
+
     public bool inBag = true;
 
 
@@ -19,6 +24,10 @@ public class ClubGrab : MonoBehaviour, Grabbable
 
         // // Translate Grip to Anchor Point.
         hand.transform.position = attachPivot.position;
+
+        // Rotate Club Based on Attached Hand.
+        if (hand.CompareTag("left") && !shouldFlipHead) transform.Rotate(new Vector3(0, 180, 0), Space.Self);
+        if (hand.CompareTag("left") && shouldFlipHead) transform.Find("Head").transform.localRotation = Quaternion.Euler(flippedHead);
 
         // Create Fixed Joint for hand
         FixedJoint joint = hand.AddComponent<FixedJoint>();
