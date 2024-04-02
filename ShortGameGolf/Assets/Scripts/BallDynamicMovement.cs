@@ -31,6 +31,10 @@ public class BallDynamicMovement : MonoBehaviour
     [SerializeField]
     private AudioClip smackClip;
 
+    // Roll Timer
+    private bool startTimer = false;
+    private float rollTimer = 0.0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,10 +52,6 @@ public class BallDynamicMovement : MonoBehaviour
 
     void OnCollisionEnter(Collision collision) {
         if (collision.collider.gameObject.CompareTag("club")) {
-            if (ballRB.constraints == RigidbodyConstraints.FreezePosition) {
-                ballRB.constraints = RigidbodyConstraints.None;
-            }
-
             // Play Hit Audio Based on Collision Force.
             if (collision.impulse.magnitude >= 2) {
                 audio.PlayOneShot(smackClip);
@@ -79,40 +79,49 @@ public class BallDynamicMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (startTimer && rollTimer <= 6.0f) {
+            rollTimer += Time.deltaTime;
+        }
+        else {
+            rollTimer = 0.0f;
+            startTimer = false;
+        }
     }
 
     // Ball Dynamic Drag Functions.
     private void ApplyBaseDrag() {
         // Handle Dynamic Drag Forces to Prevent infinite rolling
-        if (ballRB.velocity.magnitude <= Mathf.Epsilon) {
-            ballRB.angularDrag = baseAngularDrag;
+        ballRB.angularDrag = baseAngularDrag;
+        ballRB.drag = baseDrag;
+
+        if (ballRB.velocity.magnitude < 0.6 && Physics.Raycast(transform.position, Vector3.down, 0.1f) && ballRB.constraints != RigidbodyConstraints.FreezePosition) {
+            startTimer = true;
         }
-        else if (ballRB.velocity.magnitude <= 0.08) {
-            ballRB.angularDrag = Mathf.Lerp(ballRB.angularDrag, 45, dragIncrement*100);
+        else {
+            startTimer = false;
         }
-        else if (ballRB.velocity.magnitude <= 0.3) {
-            ballRB.angularDrag = Mathf.Lerp(ballRB.angularDrag, 20, dragIncrement*100);
-        }
-        else if (ballRB.velocity.magnitude <= 1) {
-            ballRB.angularDrag = Mathf.Lerp(ballRB.angularDrag, 1, dragIncrement);
+        
+        if (rollTimer >= 6.0f) {
+            startTimer = false;
+            ballRB.constraints = RigidbodyConstraints.FreezePosition;
         }
     }
 
     private void ApplySandDrag() {
         // Handle Dynamic Drag Forces to Prevent infinite rolling (When on Sand)
-        if (ballRB.velocity.magnitude <= Mathf.Epsilon) {
-            ballRB.angularDrag = sandAngularDrag;
-            ballRB.drag = sandDrag;
+        ballRB.angularDrag = sandAngularDrag;
+        ballRB.drag = sandDrag;
+
+        if (ballRB.velocity.magnitude < 0.8 && Physics.Raycast(transform.position, Vector3.down, 0.1f) && ballRB.constraints != RigidbodyConstraints.FreezePosition) {
+            startTimer = true;
         }
-        else if (ballRB.velocity.magnitude <= 0.1) {
-            ballRB.angularDrag = Mathf.Lerp(ballRB.angularDrag, 45, dragIncrement*100);
+        else {
+            startTimer = false;
         }
-        else if (ballRB.velocity.magnitude <= 0.3) {
-            ballRB.angularDrag = Mathf.Lerp(ballRB.angularDrag, 25, dragIncrement*100);
-        }
-        else if (ballRB.velocity.magnitude <= 1) {
-            ballRB.angularDrag = Mathf.Lerp(ballRB.angularDrag, 3, dragIncrement);
+        
+        if (rollTimer >= 4.0f) {
+            startTimer = false;
+            ballRB.constraints = RigidbodyConstraints.FreezePosition;
         }
     }
 }
