@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 97495237141349334}
   - component: {fileID: 97495237141349333}
   - component: {fileID: 2804549197859812739}
-  - component: {fileID: 7950475604438248424}
+  - component: {fileID: 2890910363722333721}
   m_Layer: 0
   m_Name: Head
   m_TagString: club
@@ -125,14 +125,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97495237141349330}
-  m_LocalRotation: {x: -0.46567604, y: 0.432761, z: 0.58584934, w: 0.5026374}
+  m_LocalRotation: {x: -0.45716375, y: 0.4277205, z: 0.59284204, w: 0.5065519}
   m_LocalPosition: {x: 0.0035, y: -0.2269, z: 0.0239}
   m_LocalScale: {x: 0.07, y: 0.0078908065, z: 0.035119265}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3775330372679396487}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -77.213, y: -29.976, z: 122.876}
+  m_LocalEulerAnglesHint: {x: -76, y: -26.707, z: 119.989}
 --- !u!33 &97495237141349334
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -194,9 +194,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0144802, y: 2.0000007, z: 0.9907517}
-  m_Center: {x: 0.0071831453, y: -0.0010332641, z: -0.0037867846}
---- !u!114 &7950475604438248424
+  m_Size: {x: 1.0000004, y: 2.0000005, z: 1.0000005}
+  m_Center: {x: -0.000001847744, y: -0.000061035156, z: -0.0000039041042}
+--- !u!114 &2890910363722333721
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,11 +205,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 97495237141349330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b4b54429d2c7341b9fd2ec62985233, type: 3}
+  m_Script: {fileID: 11500000, guid: ae57d37c2c2170040a1e31592363d79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minVibrationForce: 0.01
-  maxVibrationForce: 0.5
 --- !u!1 &97495237417248392
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,6 +415,7 @@ GameObject:
   - component: {fileID: 3775330372679396487}
   - component: {fileID: -2837917900712621039}
   - component: {fileID: 8913851607952645557}
+  - component: {fileID: 1119669438139642638}
   - component: {fileID: 7797547990260537078}
   m_Layer: 0
   m_Name: Chipper
@@ -458,6 +457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachPivot: {fileID: 8392345734860571114}
+  shouldFlipHead: 0
   inBag: 1
 --- !u!54 &8913851607952645557
 Rigidbody:
@@ -475,6 +475,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1119669438139642638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481054195389650519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b4b54429d2c7341b9fd2ec62985233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVibrationForce: 0.01
+  maxVibrationForce: 0.5
 --- !u!136 &7797547990260537078
 CapsuleCollider:
   m_ObjectHideFlags: 0
