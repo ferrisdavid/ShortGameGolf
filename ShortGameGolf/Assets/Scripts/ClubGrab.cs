@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
-using Valve.VR;
 
 public class ClubGrab : MonoBehaviour, Grabbable
 {
     [SerializeField]
     private Transform attachPivot;
     private GameObject attachedHand;
+    private GameObject detachedHand;
+
+    [SerializeField]
+    private bool shouldFlipHead = false;
+    [SerializeField]
+    private Vector3 flippedHead;
+
+    public bool inBag = true;
 
 
 
@@ -18,6 +24,10 @@ public class ClubGrab : MonoBehaviour, Grabbable
 
         // // Translate Grip to Anchor Point.
         hand.transform.position = attachPivot.position;
+
+        // Rotate Club Based on Attached Hand.
+        if (hand.CompareTag("left") && !shouldFlipHead) transform.Rotate(new Vector3(0, 180, 0), Space.Self);
+        if (hand.CompareTag("left") && shouldFlipHead) transform.Find("Head").transform.localRotation = Quaternion.Euler(flippedHead);
 
         // Create Fixed Joint for hand
         FixedJoint joint = hand.AddComponent<FixedJoint>();
@@ -31,8 +41,18 @@ public class ClubGrab : MonoBehaviour, Grabbable
 
         attachedHand = hand;
 
+        // Hide the Inactive Hand.
+        string otherhandTag = attachedHand.CompareTag("left") ? "right" : "left";
+        GameObject otherHand = GameObject.FindGameObjectWithTag(otherhandTag);
+        detachedHand = otherHand;
+        otherHand.SetActive(false);
+
+        // Dynamic Physic Layer to Prevent Collision with Non ball objects when held
         gameObject.layer = 6;
         SetChildLayers(gameObject, 6);
+        GetComponent<CapsuleCollider>().isTrigger = true;
+
+        inBag = false;
     }
 
     public void OnRelease() {
@@ -40,9 +60,16 @@ public class ClubGrab : MonoBehaviour, Grabbable
         attachedHand.GetComponent<FixedJoint>().connectedBody = null;
         // // Manually Destroy the Fixed Joint
         Destroy(attachedHand.GetComponent<FixedJoint>());
+        
+        // Reset Hand References.
+        attachedHand = null;
+        detachedHand.SetActive(true);
+        detachedHand = null;
 
+        // Dynamic Physic Layer to Enable Collision with Non ball objects when released
         gameObject.layer = 9;
         SetChildLayers(gameObject, 9);
+        GetComponent<CapsuleCollider>().isTrigger = false;
     }
 
     public GameObject GetAttachedHand() {
@@ -65,8 +92,13 @@ public class ClubGrab : MonoBehaviour, Grabbable
     // Update is called once per frame
     void Update()
     {
+        if (inBag) {
+            GetComponent<Rigidbody>().isKinematic = true;
+        }
 
+        if (!inBag && GetComponent<Rigidbody>().isKinematic) {
+            GetComponent<Rigidbody>().isKinematic = false;
+        }
     }
-
     
 }

@@ -52,17 +52,29 @@ public class HandController : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         UpdateInteractableObject(other);
+
+        // If Grabbable Object implements hover enter function than perform this action.
+        Interactable interactableElement;
+        if (grabableObject && grabableObject.TryGetComponent<Interactable>(out interactableElement)) interactableElement.OnHoverEnter(transform);
     }
 
     // Collider Trigger Stay Method - Runs once per frame and ensures that controller hovering over an object for an extended period of time assigns the object as grabbable if it meets the necessary conditions
     public void OnTriggerStay(Collider other)
     {
         UpdateInteractableObject(other);
+
+        // If Grabbable Object implements hover stay function than perform this action.
+        Interactable interactableElement;
+        if (grabableObject && grabableObject.TryGetComponent<Interactable>(out interactableElement)) interactableElement.OnHoverStay(transform);
     }
 
     // Collider Trigger Exit Method - Reset Grabable Object on Trigger Exit
     public void OnTriggerExit(Collider other)
     {
+        // If Grabbable Object implements hover exit function than perform this action.
+        Interactable interactableElement;
+        if (grabableObject && grabableObject.TryGetComponent<Interactable>(out interactableElement)) interactableElement.OnHoverExit(transform);
+        
         // Reset the Grabable Object
         grabableObject = null;
     }
@@ -86,13 +98,13 @@ public class HandController : MonoBehaviour
     {
         // Execute OnGrab function for the object if it is Grabbable
         Grabbable grabObject;
-        if (grabableObject.TryGetComponent<Grabbable>(out grabObject)) {
+        if (grabableObject && grabableObject.TryGetComponent<Grabbable>(out grabObject)) {
             grabObject.OnGrab(gameObject);
         }
 
         // Execute OnBeginInteraction function for the object if it is Interactable
         Interactable interactableObject;
-        if (grabableObject.TryGetComponent<Interactable>(out interactableObject)) {
+        if (grabableObject && grabableObject.TryGetComponent<Interactable>(out interactableObject)) {
             interactableObject.OnBeginInteraction(gameObject.transform);
         }
 
@@ -113,7 +125,7 @@ public class HandController : MonoBehaviour
 
         // Execute OnRelease function for the object if it is Grabbable
         Grabbable grabObject;
-        if (heldObject.TryGetComponent<Grabbable>(out grabObject)) {
+        if (heldObject && heldObject.TryGetComponent<Grabbable>(out grabObject)) {
             grabObject.OnRelease();
 
             // Assign the last known velocity of the hand controller to the released held object
@@ -123,7 +135,7 @@ public class HandController : MonoBehaviour
 
         // Execute OnEndInteraction function for the object if it is Interactable
         Interactable interactableObject;
-        if (heldObject.TryGetComponent<Interactable>(out interactableObject)) {
+        if (heldObject && heldObject.TryGetComponent<Interactable>(out interactableObject)) {
             interactableObject.OnEndInteraction();
         }
 

@@ -19,7 +19,7 @@ public class TeleportController : MonoBehaviour
     // State Managers and Helpers.
     private PlayerController PlayerManager;
     [SerializeField]
-    private Vector3 teleportOffset;
+    private float teleportOffset;
     [SerializeField]
     private Transform ball;
 
@@ -27,23 +27,22 @@ public class TeleportController : MonoBehaviour
     void Start()
     {
         PlayerManager = GetComponent<PlayerController>();
-        Teleport.AddOnStateDownListener(onTeleportRequest, handType);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void onTeleportRequest(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    public void onTeleportRequest()
     {
         if (PlayerManager.isTeleportEnabled)
         {
             // Fade Screen to black on successful Teleport Request before moving
             SteamVR_Fade.View(Color.black, 1.0f);
             Vector3 difference = rig.transform.position - cam.transform.position;
-            Vector3 teleportPoint = ball.position - teleportOffset;
+            Vector3 teleportPoint = ball.position;
             // Start Fade Co routine which handles player movement and fade in
             StartCoroutine(TeleportFade(teleportPoint, difference));
         }
@@ -51,7 +50,14 @@ public class TeleportController : MonoBehaviour
 
     private void handleTeleport(Vector3 teleportPoint, Vector3 camPlayerDiff)
     {
-        rig.transform.position = new Vector3(camPlayerDiff.x + teleportPoint.x, rig.transform.position.y, camPlayerDiff.z + teleportPoint.z);
+        // Teleport Player.
+        rig.transform.position = new Vector3(camPlayerDiff.x + teleportPoint.x, ball.position.y, camPlayerDiff.z + teleportPoint.z);
+        // Get Look Vector to Hole.
+        Vector3 lookToHole = GameObject.Find("CourseHole").transform.position - rig.transform.position;
+        lookToHole.y = 0.0f;
+
+        // Rotate Player to face the hole
+        rig.transform.localRotation = Quaternion.LookRotation(lookToHole);
     }
 
     IEnumerator TeleportFade(Vector3 teleportPoint, Vector3 camPlayerDiff)

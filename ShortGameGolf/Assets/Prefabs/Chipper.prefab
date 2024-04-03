@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 97495237029880177}
   m_Layer: 0
   m_Name: Grip
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 97495237029880207}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -109,11 +109,11 @@ GameObject:
   - component: {fileID: 97495237141349331}
   - component: {fileID: 97495237141349334}
   - component: {fileID: 97495237141349333}
-  - component: {fileID: 4403595146246986757}
   - component: {fileID: 2804549197859812739}
+  - component: {fileID: 2890910363722333721}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,14 +125,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97495237141349330}
-  m_LocalRotation: {x: -0.5765096, y: -0, z: 0.0000000074505797, w: 0.81709033}
-  m_LocalPosition: {x: -0.0244, y: -0.2186, z: -0.002}
-  m_LocalScale: {x: 0.07, y: 0.0031098, z: 0.025}
+  m_LocalRotation: {x: -0.45716375, y: 0.4277205, z: 0.59284204, w: 0.5065519}
+  m_LocalPosition: {x: 0.0035, y: -0.2269, z: 0.0239}
+  m_LocalScale: {x: 0.07, y: 0.0078908065, z: 0.035119265}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3775330372679396487}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -70.411, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -76, y: -26.707, z: 119.989}
 --- !u!33 &97495237141349334
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -183,20 +183,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4403595146246986757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 97495237141349330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 584654e97ccd4f948b5de76806ab923e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minVibrationForce: 0
-  maxVibrationForce: 0.2
 --- !u!65 &2804549197859812739
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -208,8 +194,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0144802, y: 2.0000007, z: 0.9907517}
-  m_Center: {x: 0.0071831453, y: -0.0010332641, z: -0.0037867846}
+  m_Size: {x: 1.0000004, y: 2.0000005, z: 1.0000005}
+  m_Center: {x: -0.000001847744, y: -0.000061035156, z: -0.0000039041042}
+--- !u!114 &2890910363722333721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97495237141349330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae57d37c2c2170040a1e31592363d79a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &97495237417248392
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +222,7 @@ GameObject:
   - component: {fileID: 97495237417248394}
   m_Layer: 0
   m_Name: Bend
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,14 +234,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97495237417248392}
-  m_LocalRotation: {x: -0.060529884, y: -0.0012819553, z: 0.021135256, w: 0.99794185}
+  m_LocalRotation: {x: -0.05894143, y: -0.069579154, z: 0.025228426, w: 0.99551404}
   m_LocalPosition: {x: 0.0003, y: -0.20266, z: 0.0002}
   m_LocalScale: {x: 0.006, y: 0.01, z: 0.006}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3775330372679396487}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -6.936, y: -0.295, z: 2.444}
+  m_LocalEulerAnglesHint: {x: -6.537, y: -8.189, z: 3.372}
 --- !u!33 &97495237417248396
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -303,7 +301,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 97495237417248392}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -322,7 +320,7 @@ GameObject:
   - component: {fileID: 97495237717260550}
   m_Layer: 0
   m_Name: Rod
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -401,7 +399,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 97495237717260548}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -417,10 +415,11 @@ GameObject:
   - component: {fileID: 3775330372679396487}
   - component: {fileID: -2837917900712621039}
   - component: {fileID: 8913851607952645557}
-  - component: {fileID: 1339292625314195020}
+  - component: {fileID: 1119669438139642638}
+  - component: {fileID: 7797547990260537078}
   m_Layer: 0
   m_Name: Chipper
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -458,6 +457,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachPivot: {fileID: 8392345734860571114}
+  shouldFlipHead: 0
+  inBag: 1
 --- !u!54 &8913851607952645557
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -473,8 +474,22 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!136 &1339292625314195020
+  m_CollisionDetection: 1
+--- !u!114 &1119669438139642638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481054195389650519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b4b54429d2c7341b9fd2ec62985233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVibrationForce: 0.01
+  maxVibrationForce: 0.5
+--- !u!136 &7797547990260537078
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -484,10 +499,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.01
-  m_Height: 0.45
+  m_Radius: 0.02
+  m_Height: 0.41869897
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: -0.0028998125, y: 0.01565054, z: -0.004194416}
 --- !u!1 &6112150547570666534
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +517,7 @@ GameObject:
   - component: {fileID: 2125562556553269559}
   m_Layer: 0
   m_Name: AttachPivot
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -581,7 +596,7 @@ BoxCollider:
   m_GameObject: {fileID: 6112150547570666534}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0000001, z: 1}
   m_Center: {x: 0.000000029816725, y: -0.0000000590997, z: 0}

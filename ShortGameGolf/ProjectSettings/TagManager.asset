@@ -8,6 +8,8 @@ TagManager:
   - left
   - right
   - ball
+  - club
+  - sand
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - Ground
   - Hands
   - Interactable
-  - 
-  - 
+  - Hole
+  - Bag
   - 
   - 
   - 
