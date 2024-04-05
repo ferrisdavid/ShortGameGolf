@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
 {
@@ -47,4 +48,19 @@ public class GameState : MonoBehaviour
     public void AddFreeStroke() {
         freeStrokes++;
     }
+
+    // System Control Functions.
+    public void LoadScene(string scene) {
+        SceneManager.LoadScene(scene);
+    }
+
+    public void QuitGame() {
+        Application.Quit();
+    }
+
+    public void ReturnToClubhouse() {
+
+    }
 }
+
+

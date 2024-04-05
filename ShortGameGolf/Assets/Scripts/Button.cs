@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Valve.VR;
 
 public class Button : MonoBehaviour, Interactable
@@ -22,6 +23,9 @@ public class Button : MonoBehaviour, Interactable
     [SerializeField]
     private float buttonMaxCompression;
     private bool isFromRest = true;
+
+    [SerializeField]
+    private UnityEvent onButtonPress;
 
     // Reference to Button Mesh
     private MeshRenderer buttonMesh;
@@ -88,8 +92,8 @@ public class Button : MonoBehaviour, Interactable
             
             // Apply Impulse force to selected object on button compression
             if (Mathf.Abs(compression) > compressionThreshold && isFromRest) {
-                // Execute Teleport Action.
-                if (player.isTeleportEnabled) player.GetComponent<TeleportController>().onTeleportRequest();
+                // Execute Button Pres Action.
+                onButtonPress.Invoke();
 
                 isFromRest = false;
 
