@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/InitialLoadScene.unity
+    guid: 9a0a90210a364764697ae5309dc34591
   - enabled: 1
     path: Assets/Scenes/ClubHouse.unity
     guid: ee0dd907462f34a48a8fc4690b43e1ab
