@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
         isTeleportEnabled = isEnabled;
 
         // Render the Golf Cart/Display Button for Teleportation
+        golfCart.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        golfCart.transform.localPosition = new Vector3(golfCart.transform.localPosition.x, 1.5f, golfCart.transform.localPosition.z);
         golfCart.SetActive(isEnabled);
     }
 
