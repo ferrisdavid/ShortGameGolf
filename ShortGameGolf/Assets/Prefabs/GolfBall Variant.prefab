@@ -867,7 +867,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 500
+      scalar: 1000
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -5050,3 +5050,16 @@ MonoBehaviour:
   player: {fileID: 0}
   teleportEnableThreshold: 2
   ballTrail: {fileID: 3832519995696567463}
+--- !u!114 &1849058094906567023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9137783804834586661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae57d37c2c2170040a1e31592363d79a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
