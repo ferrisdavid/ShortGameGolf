@@ -33,9 +33,11 @@ public class ClubManager : MonoBehaviour
         if (other.gameObject.layer == 6) {
             highlightableMesh.materials[1].SetColor("g_vOutlineColor", new Color( 0.85f, 0.8f, 0.45f, 1 ));
         }
+    }
 
+    private void OnTriggerStay(Collider other) {
         // Check for interactable layer return to bag immediately
-        if (other.gameObject.layer == 9) {
+        if (other.gameObject.layer == 9 && other.gameObject.transform.parent == null) {
             Transform releasedSnapPoint = other.gameObject.name == "Putter" ? putterBagSnapPoint : chipperBagSnapPoint;
             other.transform.position = releasedSnapPoint.position;
             other.transform.localRotation = Quaternion.LookRotation(Vector3.forward, -Vector3.up);
