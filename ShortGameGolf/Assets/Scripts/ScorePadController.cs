@@ -13,6 +13,11 @@ public class ScorePadController : MonoBehaviour, Grabbable
     private Transform restingSnapPoint;
 
     private GameObject attachedHand;
+    [SerializeField]
+    private Transform leftAttachPivot;
+    [SerializeField]
+    private Transform rightAttachPivot;
+    
 
     // Text Label Object References.
     [SerializeField]
@@ -27,7 +32,7 @@ public class ScorePadController : MonoBehaviour, Grabbable
     private TextMeshPro[] finalScoreLabels; 
 
     public void OnGrab(GameObject hand) {
-        gameObject.transform.position = hand.transform.position;
+        hand.transform.position = hand.CompareTag("right") ? rightAttachPivot.position : leftAttachPivot.position;
         // Create Fixed Joint for hand
         FixedJoint joint = hand.AddComponent<FixedJoint>();
         // Assign Break Force and Break Torque Properties for Joint
@@ -36,6 +41,7 @@ public class ScorePadController : MonoBehaviour, Grabbable
 
         // Assign Object as connected rigidbody
         joint.connectedBody = gameObject.GetComponent<Rigidbody>();
+        joint.connectedAnchor = hand.CompareTag("right") ? rightAttachPivot.position : leftAttachPivot.position;
 
         attachedHand = hand;
     }
