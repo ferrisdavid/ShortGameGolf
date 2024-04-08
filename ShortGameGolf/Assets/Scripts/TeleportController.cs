@@ -51,7 +51,7 @@ public class TeleportController : MonoBehaviour
     private void handleTeleport(Vector3 teleportPoint, Vector3 camPlayerDiff)
     {
         // Teleport Player.
-        rig.transform.position = new Vector3(camPlayerDiff.x + teleportPoint.x, ball.position.y, camPlayerDiff.z + teleportPoint.z);
+        rig.transform.position = new Vector3(teleportPoint.x, ball.position.y, teleportPoint.z);
         // Get Look Vector to Hole.
         Vector3 lookToHole = GameObject.Find("CourseHole").transform.position - rig.transform.position;
         lookToHole.y = 0.0f;
