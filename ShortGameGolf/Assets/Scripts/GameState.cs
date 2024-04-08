@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using Valve.VR;
 
 public class GameState : MonoBehaviour
 {
@@ -28,7 +28,7 @@ public class GameState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        SteamVR_Actions.Golf.Activate();
     }
 
     // Game State Access and Updater Methods.
@@ -51,15 +51,18 @@ public class GameState : MonoBehaviour
 
     // System Control Functions.
     public void LoadScene(string scene) {
-        SceneManager.LoadScene(scene);
+        SteamVR_LoadLevel.Begin(scene);
     }
 
     public void QuitGame() {
+        // Quit Built Application.
         Application.Quit();
+        // Quit Play Mode in Editor.
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 
     public void ReturnToClubhouse() {
-
+        SteamVR_LoadLevel.Begin("ClubHouse");
     }
 }
 
