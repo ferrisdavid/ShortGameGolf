@@ -21,7 +21,7 @@ public class HoleDetect : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("ball")) {
-            other.gameObject.layer = 6;
+            other.gameObject.layer = 10;
         }
     }
     private IEnumerator OnTriggerStay(Collider other) {
