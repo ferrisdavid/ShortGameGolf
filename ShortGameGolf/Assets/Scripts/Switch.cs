@@ -35,12 +35,9 @@ public class Switch : MonoBehaviour, Interactable
 
     public void OnEndInteraction()
     {
+        // Reset Hand References.
         attachedHand = null;
     }
-
-    public void OnHoverEnter(Transform hand) { }
-    public void OnHoverExit(Transform hand) { }
-    public void OnHoverStay(Transform hand) { }
 
     public void updateToHand() {
         float newHandPositionZ = transform.parent.InverseTransformPoint(attachedHand.position).z;
@@ -48,7 +45,7 @@ public class Switch : MonoBehaviour, Interactable
 
         float newAngle = Mathf.Clamp((handleLocalStartPos.z + handMovement)*200, handleMinMaxRotation.x, handleMinMaxRotation.y);
 
-        transform.rotation = Quaternion.AngleAxis(newAngle, Vector3.right);
+        transform.localRotation = Quaternion.AngleAxis(newAngle, transform.InverseTransformDirection(transform.right));
 
         // Execute Switch Functionality.
         if (newAngle >= 15) {
@@ -75,6 +72,8 @@ public class Switch : MonoBehaviour, Interactable
     // Update is called once per frame
     void Update()
     {
-
+         if (attachedHand) {
+            updateToHand();
+        }
     }
 }
