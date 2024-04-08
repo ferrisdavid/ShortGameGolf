@@ -94,7 +94,7 @@ public class BallDynamicMovement : MonoBehaviour
         ballRB.angularDrag = baseAngularDrag;
         ballRB.drag = baseDrag;
 
-        if (ballRB.velocity.magnitude < 0.6 && Physics.Raycast(transform.position, Vector3.down, 0.1f) && ballRB.constraints != RigidbodyConstraints.FreezePosition) {
+        if (ballRB.velocity.magnitude < 0.3 && Physics.Raycast(transform.position, Vector3.down, 0.1f) && ballRB.constraints != RigidbodyConstraints.FreezePosition) {
             startTimer = true;
         }
         else {

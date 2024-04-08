@@ -22,7 +22,7 @@ public class ClubGrab : MonoBehaviour, Grabbable
         // Rotate to have properly oriented club head
         transform.localRotation = Quaternion.LookRotation(hand.transform.up, -hand.transform.forward);
 
-        // // Translate Grip to Anchor Point.
+        // Translate Grip to Anchor Point.
         hand.transform.position = attachPivot.position;
 
         // Rotate Club Based on Attached Hand.
