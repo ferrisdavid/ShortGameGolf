@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BallDynamicMovement : MonoBehaviour
@@ -11,8 +12,9 @@ public class BallDynamicMovement : MonoBehaviour
     [SerializeField]
     private float baseAngularDrag;
 
-    [SerializeField]
-    private float dragIncrement;
+    // Club Physics Modifiers.
+    public float clubDragModifier = 1;
+    public float clubAngularDragModifier = 1;
 
     // Environment Modifiers.
     private bool isModifiedPhysics = false;
@@ -25,7 +27,7 @@ public class BallDynamicMovement : MonoBehaviour
     private Rigidbody ballRB;
 
     // Audio Source and Clips (Ball Hit Sounds).
-    private AudioSource audio;
+    private AudioSource audioSource;
     [SerializeField]
     private AudioClip putClip;
     [SerializeField]
@@ -40,7 +42,7 @@ public class BallDynamicMovement : MonoBehaviour
     void Start()
     {
         ballRB = GetComponent<Rigidbody>();
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
 
         // Initialize the Balls Drag Physics
         ballRB.drag = baseDrag;
@@ -54,11 +56,18 @@ public class BallDynamicMovement : MonoBehaviour
         if (collision.collider.gameObject.CompareTag("club")) {
             // Play Hit Audio Based on Collision Force.
             if (collision.impulse.magnitude >= 2) {
-                audio.PlayOneShot(smackClip);
+                audioSource.PlayOneShot(smackClip);
             } 
             else {
-                audio.PlayOneShot(putClip);
-            } 
+                audioSource.PlayOneShot(putClip);
+            }
+
+            // Apply Artifical Gravity for Putter Hits to Prevent Putter from Performing Aerial Shots.
+            ConstantForce appliedGravity;
+            if (collision.collider.gameObject.transform.parent.gameObject.name == "Putter" && collision.impulse.y > 1 && !TryGetComponent<ConstantForce>(out appliedGravity)) {
+                ConstantForce artificalPutterGravity = gameObject.AddComponent<ConstantForce>();
+                artificalPutterGravity.force = new Vector3(0, -20.81f, 0);
+            }
         }
 
         // Rest Ground Environment Physics Modifiers.
@@ -74,6 +83,10 @@ public class BallDynamicMovement : MonoBehaviour
         // Handle Dynamic Drag Forces to Prevent infinite rolling
         if (!isModifiedPhysics) ApplyBaseDrag();
         else ApplySandDrag();
+
+        ConstantForce artificalPutterGravity;
+        bool ballInAir = !Physics.Raycast(transform.position, Vector3.down, 0.1f);
+        if (!ballInAir && TryGetComponent<ConstantForce>(out artificalPutterGravity)) Destroy(artificalPutterGravity);
     }
 
     // Update is called once per frame
@@ -91,10 +104,12 @@ public class BallDynamicMovement : MonoBehaviour
     // Ball Dynamic Drag Functions.
     private void ApplyBaseDrag() {
         // Handle Dynamic Drag Forces to Prevent infinite rolling
-        ballRB.angularDrag = baseAngularDrag;
-        ballRB.drag = baseDrag;
+        ballRB.angularDrag = baseAngularDrag * clubAngularDragModifier;
+        ballRB.drag = baseDrag * clubDragModifier;
 
-        if (ballRB.velocity.magnitude < 0.3 && Physics.Raycast(transform.position, Vector3.down, 0.1f) && ballRB.constraints != RigidbodyConstraints.FreezePosition) {
+        bool ballOnGround = Physics.Raycast(transform.position, Vector3.down, 0.1f);
+
+        if (ballRB.velocity.magnitude < 0.2 && ballOnGround && ballRB.constraints != RigidbodyConstraints.FreezePosition) {
             startTimer = true;
         }
         else {
@@ -109,10 +124,12 @@ public class BallDynamicMovement : MonoBehaviour
 
     private void ApplySandDrag() {
         // Handle Dynamic Drag Forces to Prevent infinite rolling (When on Sand)
-        ballRB.angularDrag = sandAngularDrag;
-        ballRB.drag = sandDrag;
+        ballRB.angularDrag = sandAngularDrag * clubAngularDragModifier;
+        ballRB.drag = sandDrag * clubDragModifier;
 
-        if (ballRB.velocity.magnitude < 0.8 && Physics.Raycast(transform.position, Vector3.down, 0.1f) && ballRB.constraints != RigidbodyConstraints.FreezePosition) {
+        bool ballOnGround = Physics.Raycast(transform.position, Vector3.down, 0.1f);
+
+        if (ballRB.velocity.magnitude < 0.8 && ballOnGround && ballRB.constraints != RigidbodyConstraints.FreezePosition) {
             startTimer = true;
         }
         else {

@@ -475,6 +475,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b4b54429d2c7341b9fd2ec62985233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dragModifier: 1
+  angularDragModifier: 4
   minVibrationForce: 0.01
   maxVibrationForce: 0.5
 --- !u!136 &7797547990260537078
@@ -487,10 +489,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.02
-  m_Height: 0.41869897
+  m_Radius: 0.01
+  m_Height: 0.41975668
   m_Direction: 1
-  m_Center: {x: -0.0028998125, y: 0.01565054, z: -0.004194416}
+  m_Center: {x: 0, y: 0.008890381, z: 0}
 --- !u!1 &6112150547570666534
 GameObject:
   m_ObjectHideFlags: 0

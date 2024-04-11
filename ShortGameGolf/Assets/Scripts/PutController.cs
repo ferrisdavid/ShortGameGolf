@@ -7,6 +7,12 @@ public class PutController : MonoBehaviour
 {
     // High Level Global Game State Object
     private GameState gameState;
+    
+    // Club Physics Modifiers.
+    [SerializeField]
+    private float dragModifier;
+    [SerializeField]
+    private float angularDragModifier;
 
     // Vibration Instance Variables
     public float minVibrationForce = 0.0f;
@@ -19,6 +25,10 @@ public class PutController : MonoBehaviour
         if (other.CompareTag("ball")) {
             // Increment Game State Stroke Count
             gameState.IncrementStrokes();
+
+            // Apply Physics Modifiers from Club to Ball.
+            other.gameObject.GetComponent<BallDynamicMovement>().clubDragModifier = dragModifier;
+            other.gameObject.GetComponent<BallDynamicMovement>().clubAngularDragModifier = angularDragModifier;
 
             GameObject attachedHand = gameObject.GetComponentInParent<ClubGrab>().GetAttachedHand();
 
