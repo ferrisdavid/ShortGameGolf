@@ -6,13 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/InitialLoadScene.unity
+    path: 
     guid: 9a0a90210a364764697ae5309dc34591
   - enabled: 1
     path: Assets/Scenes/ClubHouse.unity
     guid: ee0dd907462f34a48a8fc4690b43e1ab
   - enabled: 1
-    path: Assets/Scenes/GolfCourse.unity
+    path: Assets/Scenes/FirstHole.unity
+    guid: 4bee654312183324aa9e7f1eef4a976a
+  - enabled: 1
+    path: Assets/Scenes/SecondHole.unity
     guid: b1aedc6c6ef66cc4c831fca5a57bcdd7
   m_configObjects:
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: b2b1d473fe0be574a8ca4b6117209af9, type: 2}
