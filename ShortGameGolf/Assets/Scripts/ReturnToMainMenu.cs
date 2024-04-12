@@ -5,7 +5,6 @@ using UnityEngine;
 public class ReturnToMainMenu : MonoBehaviour, Grabbable
 {
     // Reference to GameState.
-    [SerializeField]
     private GameState gameState;
 
     // Grab Fields.
@@ -43,7 +42,7 @@ public class ReturnToMainMenu : MonoBehaviour, Grabbable
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameState = GameObject.Find("GameState").GetComponent<GameState>();
     }
 
     // Update is called once per frame
