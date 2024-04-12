@@ -5457,7 +5457,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 6646534842756745233}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -6200,5 +6200,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d8e6fcf6488d9449561a69217acb44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: {fileID: 0}
   confettiSystem: {fileID: 8445669467417126819}
