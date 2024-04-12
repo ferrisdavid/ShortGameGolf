@@ -43,10 +43,10 @@ public class BallPositionTracker : MonoBehaviour
 
     private void FixedUpdate() {
         if (ComputeDistanceToPlayer(player.transform) >= teleportEnableThreshold && gameObject.GetComponent<Rigidbody>().velocity.magnitude <= 0.05) {
-            PlayerManager.ToggleTeleportEnable(true);
+           if (!PlayerManager.isTeleportEnabled) PlayerManager.ToggleTeleportEnable(true);
         }
         else {
-            PlayerManager.ToggleTeleportEnable(false);
+            if (PlayerManager.isTeleportEnabled) PlayerManager.ToggleTeleportEnable(false);
         }
     }
 

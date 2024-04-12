@@ -8,6 +8,12 @@ public class ChipController : MonoBehaviour
     // High Level Global Game State Object
     private GameState gameState;
 
+    // Club Physics Modifiers.
+    [SerializeField]
+    private float dragModifier;
+    [SerializeField]
+    private float angularDragModifier;
+
     // Vibration Instance Variables
     public float minVibrationForce = 0.0f;
     public float maxVibrationForce = 0.2f;
@@ -19,6 +25,10 @@ public class ChipController : MonoBehaviour
         if (collision.gameObject.CompareTag("ball")) {
             // Increment Game State Stroke Count
             gameState.IncrementStrokes();
+
+            // Apply Physics Modifiers from Club to Ball.
+            collision.gameObject.GetComponent<BallDynamicMovement>().clubDragModifier = dragModifier;
+            collision.gameObject.GetComponent<BallDynamicMovement>().clubAngularDragModifier = angularDragModifier;
 
             GameObject attachedHand = gameObject.GetComponentInParent<ClubGrab>().GetAttachedHand();
 

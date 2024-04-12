@@ -7,9 +7,12 @@ public class PutController : MonoBehaviour
 {
     // High Level Global Game State Object
     private GameState gameState;
-
-    // Reference to Golf Ball.
-    private GameObject ball;
+    
+    // Club Physics Modifiers.
+    [SerializeField]
+    private float dragModifier;
+    [SerializeField]
+    private float angularDragModifier;
 
     // Vibration Instance Variables
     public float minVibrationForce = 0.0f;
@@ -22,6 +25,10 @@ public class PutController : MonoBehaviour
         if (other.CompareTag("ball")) {
             // Increment Game State Stroke Count
             gameState.IncrementStrokes();
+
+            // Apply Physics Modifiers from Club to Ball.
+            other.gameObject.GetComponent<BallDynamicMovement>().clubDragModifier = dragModifier;
+            other.gameObject.GetComponent<BallDynamicMovement>().clubAngularDragModifier = angularDragModifier;
 
             GameObject attachedHand = gameObject.GetComponentInParent<ClubGrab>().GetAttachedHand();
 
@@ -38,16 +45,12 @@ public class PutController : MonoBehaviour
     void Start()
     {
         gameState = GameObject.Find("GameState").GetComponent<GameState>();
-        ball = GameObject.Find("GolfBall");
         clubRB = gameObject.GetComponentInParent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float distanceToBall = (ball.transform.position - transform.position).magnitude;
-        if (distanceToBall < 0.1) {
-            ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-        }
+
     }
 }
