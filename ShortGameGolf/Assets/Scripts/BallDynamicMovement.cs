@@ -61,13 +61,6 @@ public class BallDynamicMovement : MonoBehaviour
             else {
                 audioSource.PlayOneShot(putClip);
             }
-
-            // Apply Artifical Gravity for Putter Hits to Prevent Putter from Performing Aerial Shots.
-            ConstantForce appliedGravity;
-            if (collision.collider.gameObject.transform.parent.gameObject.name == "Putter" && collision.impulse.y > 1 && !TryGetComponent<ConstantForce>(out appliedGravity)) {
-                ConstantForce artificalPutterGravity = gameObject.AddComponent<ConstantForce>();
-                artificalPutterGravity.force = new Vector3(0, -20.81f, 0);
-            }
         }
 
         // Rest Ground Environment Physics Modifiers.
@@ -83,10 +76,6 @@ public class BallDynamicMovement : MonoBehaviour
         // Handle Dynamic Drag Forces to Prevent infinite rolling
         if (!isModifiedPhysics) ApplyBaseDrag();
         else ApplySandDrag();
-
-        ConstantForce artificalPutterGravity;
-        bool ballInAir = !Physics.Raycast(transform.position, Vector3.down, 0.1f);
-        if (!ballInAir && TryGetComponent<ConstantForce>(out artificalPutterGravity)) Destroy(artificalPutterGravity);
     }
 
     // Update is called once per frame
@@ -109,7 +98,7 @@ public class BallDynamicMovement : MonoBehaviour
 
         bool ballOnGround = Physics.Raycast(transform.position, Vector3.down, 0.1f);
 
-        if (ballRB.velocity.magnitude < 0.2 && ballOnGround && ballRB.constraints != RigidbodyConstraints.FreezePosition) {
+        if (ballRB.velocity.magnitude < 0.25 && ballOnGround && ballRB.constraints != RigidbodyConstraints.FreezePosition) {
             startTimer = true;
         }
         else {
