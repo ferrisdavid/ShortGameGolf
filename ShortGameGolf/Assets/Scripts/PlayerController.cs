@@ -26,8 +26,16 @@ public class PlayerController : MonoBehaviour
         if (gameState) gameState.LoadNextHole();
     }
 
+    public void startGame() {
+        if (gameState) gameState.LoadScene("FirstHole");
+    }
+
     public void quitToMain() {
         if (gameState) gameState.ReturnToClubhouse();
+    }
+
+    public void quitToDesktop() {
+        if (gameState) gameState.QuitGame();
     }
 
     // Start is called before the first frame update
