@@ -701,8 +701,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 584654e97ccd4f948b5de76806ab923e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragModifier: 0.001
-  angularDragModifier: 0.001
+  dragModifier: 1
+  angularDragModifier: 0.5
   minVibrationForce: 0.01
   maxVibrationForce: 0.5
 --- !u!1 &7796402015926799070

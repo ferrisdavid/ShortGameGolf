@@ -18,8 +18,7 @@ public class TeleportController : MonoBehaviour
 
     // State Managers and Helpers.
     private PlayerController PlayerManager;
-    [SerializeField]
-    private float teleportOffset;
+
     [SerializeField]
     private Transform ball;
 

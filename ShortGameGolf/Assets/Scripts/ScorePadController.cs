@@ -6,7 +6,6 @@ using UnityEngine;
 public class ScorePadController : MonoBehaviour, Grabbable
 {
     // Reference to GameState.
-    [SerializeField]
     private GameState gameState;
 
     [SerializeField]
@@ -59,9 +58,11 @@ public class ScorePadController : MonoBehaviour, Grabbable
     // Start is called before the first frame update
     void Start()
     {
+        gameState = GameObject.Find("GameState").GetComponent<GameState>();
         // Set Static Score Card Labels.
         SetCourseHoleLabel(gameState.holeNumber);
         SetHoleParLabel(gameState.holePar);
+        UpdateFinalHoleScores();
     }
 
     // Update is called once per frame
@@ -76,7 +77,7 @@ public class ScorePadController : MonoBehaviour, Grabbable
         // Updaters for Score Card Values.
         SetHoleStrokeCount(gameState.strokeCount);
 
-        if (gameState.isWin) SetFinalHoleScore(gameState.holeNumber - 1, gameState.strokeCount);
+        if (gameState.isWin) UpdateFinalHoleScores();
     }
 
     // Text Update Methods.
@@ -96,7 +97,9 @@ public class ScorePadController : MonoBehaviour, Grabbable
         activePickupLabel.text = pickupName;
     }
 
-    public void SetFinalHoleScore(int holeIndex, int numStrokes) {
-        finalScoreLabels[holeIndex].text = numStrokes.ToString();
+    public void UpdateFinalHoleScores() {
+        for (int i = 0; i < gameState.holeScores.Length; i++) {
+            finalScoreLabels[i].text =  gameState.holeScores[i].ToString();
+        }
     }
 }

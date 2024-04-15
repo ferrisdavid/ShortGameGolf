@@ -5,7 +5,16 @@ using Valve.VR;
 
 public class GameState : MonoBehaviour
 {
-    // Global Course Info.
+    public static GameState Instance; 
+
+    // Course Per Level Information.
+    [SerializeField]
+    private string[] holeNames;
+    [SerializeField]
+    private int[] holePars;
+
+    // Global Hole Info.
+    private bool isMenu = true;
     public int holeNumber;
     public int holePar;
 
@@ -18,6 +27,18 @@ public class GameState : MonoBehaviour
 
     // Course Hole Scores.
     public int[] holeScores;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -49,9 +70,32 @@ public class GameState : MonoBehaviour
         freeStrokes++;
     }
 
+    public void SetHoleFinalScore() {
+        if (!isMenu) holeScores[holeNumber - 1] = strokeCount;
+    }
+
+    public void LoadNextHole() {
+        if (isWin && holeNumber != holeScores.Length) {
+            LoadScene(holeNames[holeNumber]);
+        }
+    }
+
+    private void ResetHoleState(bool isMainMenu, int holeNumber, int holePar) {
+        isWin = false;
+
+        this.holeNumber = holeNumber;
+        this.holePar = holePar;
+        
+        strokeCount = 0;
+        freeStrokes = 0;
+
+        isMenu = isMainMenu;
+    }
+
     // System Control Functions.
     public void LoadScene(string scene) {
         SteamVR_LoadLevel.Begin(scene);
+        ResetHoleState(false, holeNumber + 1, holePars[holeNumber]);
     }
 
     public void QuitGame() {
@@ -62,6 +106,8 @@ public class GameState : MonoBehaviour
     }
 
     public void ReturnToClubhouse() {
+        ResetHoleState(true, 0, 0);
+
         SteamVR_LoadLevel.Begin("ClubHouse");
     }
 }
